@@ -26,9 +26,29 @@ export const schema = {
 						"faker": "internet.email"
 					}
 				},
-			"required": ["id", "firstName", "lastName", "email"]
+				"required": ["id", "firstName", "lastName", "email"]
+			}
+		},
+		"projects": {
+			"type": "array",
+			"minItems": 2,
+			"maxItems": 10,
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number",
+						"unique": true,
+						"minimum": 1
+					},
+					"name": {
+						"type": "string",
+						"faker": "commerce.productName"
+					}
+				},
+				"required": ["id", "name"]
+			}
 		}
-	}
 	},
 	"required": ["users"]
 };
